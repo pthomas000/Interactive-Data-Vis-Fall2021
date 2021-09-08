@@ -17,3 +17,32 @@ h3 {
 p {
   font-size: 1em;
 }
+
+.cats {
+  color:red;
+} 
+
+.dogs {
+  color:blue;
+}
+
+.pets {
+  background-color:aliceblue;
+  padding:10%;
+}
+
+.boxes {
+  text-align: left;
+}
+
+td {
+padding-left: 3em;
+padding-right: ;
+}
+button {
+  margin-bottom:10%;
+}
+
+.table {
+  padding-top:5%;
+}

@@ -6,13 +6,89 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
+
     <h1>Hello World!</h1>
     <h3>Tutorial Assignment: 1_2_basic_html </h3>
-    <table>
-      <!-- Add your table data here -->
+    <img src = "pets.jpg" />
+    <div class = "table">
+
+<svg>
+  <rect width="35%" height="55%" fill="red"/>  
+  <svg>
+    <circle cx="50" cy="50" r="10" fill="black"/>
+    <circle cx="35" cy="35" r="5" fill="black"/>
+    <circle cx="50" cy="27" r="5" fill="black"/>
+    <circle cx="65" cy="35" r="5" fill="black"/>
+  </svg>
+</svg>
+
+    <table class = "pets">
+      <thead class = "title" ><strong>Number of Cats and Dogs in Households</strong></thead>
+      <tr class = "cats boxes">
+        <th>Number of cats</th>
+        <td>4</td>
+        <td>0</td>
+        <td>3</td>
+        <td>2</td>
+        <td>3</td>
+        <td>7</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      <tr class = "dogs boxes">
+        <th>Number of dogs</th>
+        <td>1</td>
+        <td>1</td>
+        <td>2</td>
+        <td>2</td>
+        <td>0</td>
+        <td>0</td>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+      <tr id = "total boxes">
+        <th >Total number of pets</th>
+        <td>2</td>
+        <td>1</td>
+        <td>5</td>
+        <td>4</td>
+        <td>3</td>
+        <td>7</td>
+        <td>4</td>
+        <td>6</td>
+      </tr>
     </table>
+  </div>
+
+<script>
+  function message() {
+    const numberPets = document.getElementById("numberOfPets").value
+    window.alert(`You have ${numberPets} pets. Thanks for sharing!`)
+  }
+</script>
+
+<p>How many pets do you have?</p>
+<input id = "numberOfPets" />
+<button onclick = "message()"> Submit </button>
+<br>
+
     <svg>
-      <!-- Add your rectangles in here -->
+      <rect width="35%" height="55%" fill="blue"/>  
+      <svg>
+        <circle cx="50" cy="50" r="10" fill="black"/>
+        <circle cx="35" cy="35" r="5" fill="black"/>
+        <circle cx="50" cy="27" r="5" fill="black"/>
+        <circle cx="65" cy="35" r="5" fill="black"/>
+      </svg>
     </svg>
+
+    <br>
+<svg  style = "overflow:visible;"> 
+  <circle  cx="0" cy="0" r="10" fill="black"/>  
+  <circle  cx="70" cy="0" r="10" fill="black"/>  
+  <path d="M45 20 L34 35 L25 20 Z" /> 
+</svg>
+
+
   </body>
 </html>
