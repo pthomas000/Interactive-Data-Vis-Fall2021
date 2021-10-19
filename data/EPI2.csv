@@ -1,0 +1,181 @@
+code,iso,country,epi,hlt,eco
+4,AFG,Afghanistan,178,161,175
+24,AGO,Angola,158,154,144
+8,ALB,Albania,62,86,55
+784,ARE,United Arab Emirates,42,51,41
+32,ARG,Argentina,54,40,80
+51,ARM,Armenia,53,91,36
+28,ATG,Antigua and Barbuda,63,49,96
+36,AUS,Australia,13,11,21
+40,AUT,Austria,6,16,6
+31,AZE,Azerbaijan,72,113,44
+108,BDI,Burundi,170,146,168
+56,BEL,Belgium,15,20,17
+204,BEN,Benin,157,157,142
+854,BFA,Burkina Faso,112,163,63
+50,BGD,Bangladesh,162,143,159
+100,BGR,Bulgaria,41,63,27
+48,BHR,Bahrain,56,67,53
+44,BHS,Bahamas,93,55,138
+70,BIH,Bosnia and Herzegovina,78,88,82
+112,BLR,Belarus,49,48,61
+84,BLZ,Belize,101,99,107
+68,BOL,Bolivia,88,105,69
+76,BRA,Brazil,55,66,53
+52,BRB,Barbados,77,38,145
+96,BRN,Brunei Darussalam,46,29,112
+64,BTN,Bhutan,107,120,87
+72,BWA,Botswana,103,158,48
+140,CAF,Central African Republic,124,179,50
+124,CAN,Canada,20,8,38
+756,CHE,Switzerland,3,5,8
+152,CHL,Chile,44,35,69
+156,CHN,China,120,96,156
+384,CIV,Cote d'Ivoire,176,165,172
+120,CMR,Cameroon,139,178,79
+180,COD,Dem. Rep. Congo,125,143,87
+178,COG,Republic of Congo,152,168,130
+170,COL,Colombia,50,52,57
+174,COM,Comoros,148,131,147
+132,CPV,Cabo Verde,144,119,154
+188,CRI,Costa Rica,52,39,77
+192,CUB,Cuba,64,60,78
+196,CYP,Cyprus,31,26,49
+203,CZE,Czech Republic,20,32,7
+276,DEU,Germany,10,15,12
+262,DJI,Djibouti,164,159,161
+212,DMA,Dominica,86,77,104
+208,DNK,Denmark,1,8,1
+214,DOM,Dominican Republic,74,104,51
+12,DZA,Algeria,84,61,115
+218,ECU,Ecuador,56,64,58
+818,EGY,Egypt,94,108,71
+232,ERI,Eritrea,156,173,121
+724,ESP,Spain,14,18,13
+233,EST,Estonia,30,30,34
+231,ETH,Ethiopia,134,137,118
+246,FIN,Finland,7,1,15
+242,FJI,Fiji,134,106,157
+250,FRA,France,5,12,9
+583,FSM,Micronesia,143,116,154
+266,GAB,Gabon,76,127,37
+826,GBR,United Kingdom,4,8,4
+268,GEO,Georgia,102,102,104
+288,GHA,Ghana,168,159,163
+324,GIN,Guinea,175,167,166
+270,GMB,Gambia,166,148,165
+624,GNB,Guinea-Bissau,161,174,133
+226,GNQ,Equatorial Guinea,115,128,91
+300,GRC,Greece,25,28,28
+308,GRD,Grenada,95,81,116
+320,GTM,Guatemala,149,116,164
+328,GUY,Guyana,126,110,137
+340,HND,Honduras,116,111,117
+191,HRV,Croatia,34,37,19
+332,HTI,Haiti,170,147,168
+348,HUN,Hungary,33,54,11
+360,IDN,Indonesia,116,122,98
+356,IND,India,168,172,150
+372,IRL,Ireland,16,6,35
+364,IRN,Iran,67,71,74
+368,IRQ,Iraq,106,101,129
+352,ISL,Iceland,17,4,45
+376,ISR,Israel,29,23,47
+380,ITA,Italy,20,21,29
+388,JAM,Jamaica,66,83,65
+400,JOR,Jordan,48,44,66
+392,JPN,Japan,12,14,16
+398,KAZ,Kazakhstan,85,97,76
+404,KEN,Kenya,132,135,118
+417,KGZ,Kyrgyzstan,105,109,96
+116,KHM,Cambodia,139,118,145
+296,KIR,Kiribati,118,140,75
+410,KOR,South Korea,28,27,39
+414,KWT,Kuwait,47,46,60
+418,LAO,Laos,130,132,126
+422,LBN,Lebanon,78,55,122
+430,LBR,Liberia,180,149,180
+662,LCA,Saint Lucia,95,73,124
+144,LKA,Sri Lanka,109,95,139
+426,LSO,Lesotho,165,180,131
+440,LTU,Lithuania,35,36,25
+442,LUX,Luxembourg,2,7,2
+428,LVA,Latvia,36,45,20
+504,MAR,Morocco,100,112,73
+498,MDA,Moldova,87,82,99
+450,MDG,Madagascar,174,145,174
+462,MDV,Maldives,127,72,177
+484,MEX,Mexico,51,75,41
+584,MHL,Marshall Islands,152,114,173
+807,MKD,North Macedonia,43,89,23
+466,MLI,Mali,160,164,143
+470,MLT,Malta,23,19,30
+104,MMR,Myanmar,179,138,178
+499,MNE,Montenegro,74,79,85
+496,MNG,Mongolia,147,128,147
+508,MOZ,Mozambique,136,126,135
+478,MRT,Mauritania,167,161,162
+480,MUS,Mauritius,82,41,147
+454,MWI,Malawi,112,134,83
+458,MYS,Malaysia,68,50,108
+516,NAM,Namibia,104,141,55
+562,NER,Niger,152,170,126
+566,NGA,Nigeria,151,177,110
+558,NIC,Nicaragua,108,100,132
+528,NLD,Netherlands,11,13,17
+578,NOR,Norway,9,2,21
+524,NPL,Nepal,145,150,120
+554,NZL,New Zealand,19,16,32
+512,OMN,Oman,110,92,150
+586,PAK,Pakistan,142,176,89
+591,PAN,Panama,70,61,90
+604,PER,Peru,90,84,103
+608,PHL,Philippines,111,107,114
+598,PNG,Papua New Guinea,146,125,152
+616,POL,Poland,37,43,26
+620,PRT,Portugal,27,24,40
+600,PRY,Paraguay,73,77,83
+634,QAT,Qatar,122,47,179
+642,ROU,Romania,32,65,3
+643,RUS,Russia,58,57,72
+646,RWA,Rwanda,137,139,124
+682,SAU,Saudi Arabia,90,76,113
+729,SDN,Sudan,130,152,94
+686,SEN,Senegal,155,154,136
+702,SGP,Singapore,39,22,123
+90,SLB,Solomon Islands,172,154,167
+694,SLE,Sierra Leone,177,166,171
+222,SLV,El Salvador,95,93,101
+688,SRB,Serbia,45,73,32
+678,STP,Sao Tome and Principe,119,124,99
+740,SUR,Suriname,81,103,63
+703,SVK,Slovakia,26,34,10
+705,SVN,Slovenia,18,31,5
+752,SWE,Sweden,8,3,14
+748,SWZ,Eswatini,137,169,93
+690,SYC,Seychelles,38,59,24
+148,TCD,Chad,172,175,153
+768,TGO,Togo,159,171,134
+764,THA,Thailand,78,70,101
+762,TJK,Tajikistan,114,153,66
+795,TKM,Turkmenistan,92,85,104
+626,TLS,Timor-Leste,129,123,128
+776,TON,Tonga,82,89,86
+780,TTO,Trinidad and Tobago,69,53,108
+788,TUN,Tunisia,71,67,92
+792,TUR,Turkey,99,58,139
+158,TWN,Taiwan,40,42,43
+834,TZA,Tanzania,150,130,159
+800,UGA,Uganda,127,135,111
+804,UKR,Ukraine,60,69,66
+858,URY,Uruguay,61,33,141
+840,USA,United States of America,24,25,31
+860,UZB,Uzbekistan,88,121,46
+670,VCT,Saint Vincent and the Grenadines,64,87,59
+862,VEN,Venezuela,59,80,52
+704,VNM,Viet Nam,141,98,176
+548,VUT,Vanuatu,163,133,170
+882,WSM,Samoa,120,94,158
+710,ZAF,South Africa,95,115,62
+894,ZMB,Zambia,132,150,95
+716,ZWE,Zimbabwe,123,141,81
