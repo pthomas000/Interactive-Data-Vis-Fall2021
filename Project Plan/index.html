@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Project Plan</h1>
+    <h4>Abstract</h4>
+        <p> <em>>Overview:</em> Narrative piece on what data privacy is, and who is affected by threats to data privacy. Which groups are most vulnerable to data privacy threats?
+            <br>
+            <br><em>>What the project will encompass:</em> Explanation of what is data privacy and why it’s important, and then display of which groups are most vulnerable by state (map), income and education (bar graph), and age (scatterplot). Conclusion summarizes results and circles back to the importance of data privacy.
+            
+            <br>
+            <br></p><em>>The audience:</em> Anyone who shares their information online. </p>
+            
+            <br><em>>The way the project meets needs of the intended audience:</em> They are introduced to data privacy and how widespread this problem is, as well as which groups are more vulnerable than others. 
+            </p>
+    <h4>Site architecture</h4>
+        <a href = "SiteArch.MD">Read me document</a>
+    <h4>Final sketches</h4>
+        <img src = "../images/sketch2.png">
+    <h4>Data</h4>
+        <p>
+            Final data cleaned in csv format.
+
+—————
+CSV’s (data analysis + cleaning plan)
+<br>
+Map //
+<br>
+CSV 1:
+<br>
+State, total breaches, severe, moderate, basic, average data breach per individual, average severe, average moderate, average basic
+<br>
+
+<br>
+Bar Chart (categorical) //
+<br>
+CSV 2:
+<br>
+Income, total data breaches, severe, moderate, basic, average data breach per individual, average severe, average moderate, average basic
+<br>
+
+<br>
+CSV 3:
+<br>
+Level of education,  total breaches, severe, moderate, basic, average data breach per individual, average severe, average moderate, average basic
+<br>
+
+<br>
+Scatterplot (continuous) //
+<br>
+CSV 4: 
+<br>
+Age,  total breaches, severe, moderate, basic, average data breach per individual, average severe, average moderate, average basic
+<br>
+
+<br>
+*** To do— create CSV’s in R [done]
+<br>
+
+<br>
+—————
+<br>
+
+<br>
+Viz Elements (high-level overview of site architecture)
+<br>
+
+<br>
+Map // 
+<br>
+    <br>
+	Draw Map
+    <br>
+	
+	Data bind: total breaches, severe, moderate, basic
+    <br>
+	Tooltip: Toggle 1a—Percent total  breaches, severe, moderate, basic  by state
+    <br> Toggle 1b— Average per ind avgbreachtot, avgsevere, avgmoderate, avgbasic 
+    <br>Toggle 2a— Total, Severe, Moderate, Basic
+	<br>*** Convert total breach, severe, moderate, and basic to percent across states 
+	<br>
+<br>
+Scales: colorScale— # breaches
+<br>
+Key for colors by percent  (# Breaches ->least (white -> dark red)
+<br>
+Toggle function between:
+<br>[total breaches- total breaches, total severe, total moderate, total basic] and 
+<br>[average per individual within state- average total, average severe, average moderate, average basic]-> color code between total and average
+<br>
+
+<br>
+Bar Chart //
+<br>
+<br>Toggle between average and total for each group
+<br>Toggle between Income and Education
+
+<br>Bar stacks into severe, moderate, and basic breaches
+<br>Bar height Total breaches
+	
+<br>Line graph overlay  with total breaches
+	
+<br>
+<br>Scatterplot // 
+<br>Toggle between # of total, severe, moderate, basic data breaches
+
+<br>Circles x age
+<br>Circles y # data breaches (toggles between severities)
+
+<br>Color-coded by age groups
+<br>
+
+        </p>
+</body>
+</html>

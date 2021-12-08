@@ -1,0 +1,174 @@
+<!-- <!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Interactive Data Visualization Tutorial</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+  </head>
+  <body>
+    <h3 id = "title">Data Privacy</h3>
+    <div> Hello this is dummy text. Hello this is dummy text. Hello this is dummy text. 
+      Hello this is dummy text. Hello this is dummy text. Hello this is dummy text.   </div>
+    <br>
+    <div id="hover-content"> </div>
+    
+    <div id="container"> </div>
+    <script src="../lib/d3.js"></script>
+    <script src="main.js"></script>
+    <script src="main2.js"></script>
+    <script src="main3.js"></script>
+
+
+
+    <h4 id = "sectionTitle"> Why is data privacy important?</h4>
+    <div id = "hover-content"> </div>
+    <div id = "container2"> </div>
+
+    <h4>Section 3 | Distributions</h4>
+    <label for="dropdown">Filter Selection</label>
+    <select id="dropdown" name="dropdown"></select>
+    <div id="container3"> </div>
+
+
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 100px 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 10%;
+  text-align:center;
+}
+
+.column2 {
+  flex: 100%;
+  max-width: 100%;
+  padding: 0 10%;
+  text-align:center;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+    padding: 10% 10%;
+  }
+}
+</style>
+<head>
+  <meta charset="utf-8">
+  <title>Interactive Data Visualization Tutorial</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>Data Privacy</h1>
+</div>
+
+<div style = "margin-bottom:10%">
+<div id = "hover-content"> </div>
+<br>
+<div id="container" > </div>
+</div>
+
+<script src="../lib/d3.js"></script>
+<script src="main.js"></script>
+<script src="main2.js"></script>
+<script src="main3.js"></script>
+<!-- Map; total number of breaches by state-->
+
+<div  style = "background-color:0c0c0c; padding-bottom:10%">
+<h4 id = "sectionTitle" style= "color:white"> Why is data privacy important?</h4>
+<div id = "container2" style= "color:white; margin-left:5%"> </div>
+</div>
+
+    
+<!-- Tool tip; total number of data breaches by state-->
+
+<!-- Content -->
+<div class="row"> 
+
+  <div class="column">      
+    <h3> What is data privacy?</h3>
+    <p> Data privacy is the protection of an individual’s data, including 
+        sensitive personal information, interaction tracking, biometric 
+        data tracking, geolocation tracking, etc. </p>
+  </div>
+
+  <div class="column">      
+    <h3> Why is data privacy important?</h3>
+    <p> Data privacy is the protection of an individual’s data, including 
+        sensitive personal information, interaction tracking, biometric 
+        data tracking, geolocation tracking, etc. </p>
+  </div>
+
+</div>
+
+
+<div style = "background-color:0c0c0c"> 
+    <!--scatterplot--> 
+    <h4 id = "sectionTitle" style= "color:white"> Why is data privacy important?</h4>
+   <br>
+    <!-- <label for="dropdown">Filter Selection</label> -->
+    <!-- <select id="dropdown" name="dropdown"></select> -->
+    <div id="container3" style = "padding-left:15%; padding-right:15%;padding-bottom:10%;"> </div>
+</div>
+<div class="row"> 
+
+  <div class="column2">      
+    <h3> Which groups are most vulnerable to data privacy threats?</h3>
+    <p style = "margin-left:10%;margin-right:10%;"> Data privacy is the protection of an individual’s data, including 
+        sensitive personal information, interaction tracking, biometric 
+        data tracking, geolocation tracking, etc. </p>
+  </div>
+
+</div>
+
+    
+<div> 
+    <!--barchart--> 
+</div>
+
+</body>
+</html>
