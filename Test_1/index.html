@@ -1,38 +1,3 @@
-<!-- <!DOCTYPE html>
-  <head>
-    <meta charset="utf-8">
-    <title>Interactive Data Visualization Tutorial</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
-  </head>
-  <body>
-    <h3 id = "title">Data Privacy</h3>
-    <div> Hello this is dummy text. Hello this is dummy text. Hello this is dummy text. 
-      Hello this is dummy text. Hello this is dummy text. Hello this is dummy text.   </div>
-    <br>
-    <div id="hover-content"> </div>
-    
-    <div id="container"> </div>
-    <script src="../lib/d3.js"></script>
-    <script src="main.js"></script>
-    <script src="main2.js"></script>
-    <script src="main3.js"></script>
-
-
-
-    <h4 id = "sectionTitle"> Why is data privacy important?</h4>
-    <div id = "hover-content"> </div>
-    <div id = "container2"> </div>
-
-    <h4>Section 3 | Distributions</h4>
-    <label for="dropdown">Filter Selection</label>
-    <select id="dropdown" name="dropdown"></select>
-    <div id="container3"> </div>
-
-
-  </body>
-</html> -->
-
 <!DOCTYPE html>
 <html>
 <style>
@@ -47,27 +12,28 @@ body {
 
 .header {
   text-align: center;
-  padding: 32px;
+  padding-top: 5%;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  padding: 100px 4px;
+  padding: 0px;
 }
 
 /* Create four equal columns that sits next to each other */
 .column {
   flex: 50%;
   max-width: 50%;
-  padding: 0 10%;
+  /* padding: 0 10%; */
   text-align:center;
+  height:auto;
 }
 
 .column2 {
   flex: 100%;
   max-width: 100%;
-  padding: 0 10%;
+  padding: 0 0%;
   text-align:center;
 }
 
@@ -93,74 +59,144 @@ body {
   }
 }
 </style>
+
 <head>
   <meta charset="utf-8">
-  <title>Interactive Data Visualization Tutorial</title>
+  <title>Data Privacy</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gotu&family=Inter:wght@200;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<!-- Navbar -->
+<ul>
+  <li><a href="#What">What is Data Privacy?</a></li>
+  <li><a href="#Education">Breaches by Educ</a></li>
+  <li><a href="#Income">Breaches by Inc</a></li>
+  <li><a href="#Age">Breaches by Age</a></li>
+</ul>
+
+
 <!-- Header -->
-<div class="header">
-  <h1>Data Privacy</h1>
+<div id = "What" class="header">
+  <h1 style = "color:fafafa"><span style = "font-weight:200; ">Data</span>  Privacy</h1>
 </div>
 
-<div style = "margin-bottom:10%">
-<div id = "hover-content"> </div>
+<div class = "row">
+  
+  <div class= "column" style = "padding-top:5%;">
+    <div>
+      <div id = "hover-content" style = "padding-left:5%; text-align:left;"> </div>
+    </div>
+    <div id="container"> </div>
+  </div>
+
+  <div class = "column" style = "padding-top:10%; padding-right:10%; padding-left: 10%;">
+    <h3> What is data privacy?</h3>
+    <p> Data privacy is the protection of an individual’s data, including 
+        sensitive personal information, interaction tracking, biometric 
+        data tracking, geolocation tracking, etc. </p>
 <br>
-<div id="container" > </div>
+        <h3> Why is data privacy important?</h3>
+        <p> As our world becomes exponentially digitized, we leap further into the cyborg and away from a purely human experience. 
+          Cyborg? Yes, you read right. Think about it— a lot of our interactions are not purely physical; we work and take classes remotely, 
+          a good portion of our social lives are on social media platforms, we shop, sell, and are exposed to advertisements online, and even 
+          our healthcare is digitized through virtual care. A good portion of our lives have moved onto digital platforms, making our lives 
+          easier in many ways, but it has been at the expense of something we’ve taken for granted— our privacy. 
+          
+            </p>  </div>
+
 </div>
+
+  <div id = "Education" class="row"> 
+
+    <div class="column" style = "padding-top:20%; padding-bottom:10%; padding-left:10%; padding-right:10%; background-color:#fafafa;">      
+      <h3>How real are the threats to my data privacy?</h3>
+      <p>  A lot of people underestimate how vulnerable we are in terms of the information we provide online. Studies have shown that the 
+        amount of technical knowledge someone has about data privacy does not correlate with the measures taken to protect oneself from 
+        privacy threats. Instead, let’s see how real data breaches are for the average individual. </p>
+<br>
+          <h3> Breaches by Education— Insights</h3>
+          <p> The average individual, regardless of level of education, has experienced at least one data breach. The post graduate
+              respondents seem to face more data breaches than the other groups, with the average post graduate experiencing at least two data breaches. </p>
+    </div>
+  
+    <div class="column" style = "padding-top:10%; padding-bottom:10%;">      
+      <div   padding-bottom:10%">
+        <h4 id = "sectionTitle" style= "color:#676767">Average # of Breaches/Individual by Level of Education</h4>
+        <div id = "container2" style= "margin-left:5%"> </div>
+        </div>
+    </div>
+  
+  </div>
+
+</div>
+
+<div id = "Income" class="row"> 
+
+  <div class="column" style = "padding-top:10%; padding-bottom:0%;">      
+    <div  style = "padding-bottom:10%">
+      <h4 id = "sectionTitle" style= "color:#676767">Average # of Data Breaches/Individual by Income</h4>
+      <div id = "container4" style= "color:white; margin-left:5%"> </div>
+      </div>
+  </div>
+
+  <div class="column" style = "background-color:#fafafa;padding-top:20%; padding-bottom:10%; padding-left:10%; padding-right:10%;">      
+    <h3> Breaches by Income— Insights</h3>
+    <p> The average individual, regardless of income, experiences at least one data breach, with the individual average being closer 
+      to two for upper class individuals. Although the lower income group has a lower individual average for total breaches, the number of breaches across income groups is quite close, falling betwen 1.6 and 2.</p>
+  </div>
+
+</div>
+  
+
 
 <script src="../lib/d3.js"></script>
 <script src="main.js"></script>
 <script src="main2.js"></script>
 <script src="main3.js"></script>
-<!-- Map; total number of breaches by state-->
 
-<div  style = "background-color:0c0c0c; padding-bottom:10%">
-<h4 id = "sectionTitle" style= "color:white"> Why is data privacy important?</h4>
-<div id = "container2" style= "color:white; margin-left:5%"> </div>
-</div>
+<!-- Bar Chart; total number of breaches by state-->
 
-    
-<!-- Tool tip; total number of data breaches by state-->
 
-<!-- Content -->
-<div class="row"> 
 
-  <div class="column">      
-    <h3> What is data privacy?</h3>
-    <p> Data privacy is the protection of an individual’s data, including 
-        sensitive personal information, interaction tracking, biometric 
-        data tracking, geolocation tracking, etc. </p>
+
+<!--scatterplot--> 
+
+<div id = "Age" class = "row" style = "background-color:0c0c0c; padding-bottom:10%;"> 
+  <div class = "column" style = "background-color:#fafafa; padding-top: 10%;padding-left: 10%; padding-right:10%; ">
+    <h3>Breaches by Age— Insights</h3>
+    <p>The radius of the circles are proportionate to the relative frequency of individuals at that age 
+      and who has experienced that specified number of breaches. A total breach count of at one spreads 
+      across all age groups, and the number of breaches tends to be higher for middle aged individuals. 
+      The frequency of individuals is high among all age groups at 0-2 total breaches, and begins tapering 
+      at higher numbers of total breaches. 
+
+    </p>
   </div>
 
-  <div class="column">      
-    <h3> Why is data privacy important?</h3>
-    <p> Data privacy is the protection of an individual’s data, including 
-        sensitive personal information, interaction tracking, biometric 
-        data tracking, geolocation tracking, etc. </p>
-  </div>
-
-</div>
-
-
-<div style = "background-color:0c0c0c"> 
-    <!--scatterplot--> 
-    <h4 id = "sectionTitle" style= "color:white"> Why is data privacy important?</h4>
+  <div class = "column">
+    <h4 id = "sectionTitle" style= "color:#676767"> Average # of Breaches/Individual by Age</h4>
    <br>
-    <!-- <label for="dropdown">Filter Selection</label> -->
-    <!-- <select id="dropdown" name="dropdown"></select> -->
+  <!-- <label for="dropdown">Filter Selection</label>
+    <select id="dropdown" name="dropdown"></select>  -->
     <div id="container3" style = "padding-left:15%; padding-right:15%;padding-bottom:10%;"> </div>
+  </div>
+
 </div>
 <div class="row"> 
 
-  <div class="column2">      
-    <h3> Which groups are most vulnerable to data privacy threats?</h3>
-    <p style = "margin-left:10%;margin-right:10%;"> Data privacy is the protection of an individual’s data, including 
-        sensitive personal information, interaction tracking, biometric 
-        data tracking, geolocation tracking, etc. </p>
+  <div class="column2" style = "padding-top:5%; padding-bottom:10%; padding-left:10%; padding-right:50%;">      
+    <h3 style= "padding-left:10%;">Conclusion</h3>
+    <p style = "margin-left:10%;margin-right:10%;"> 
+      It's apparent that the threats to data privacy do not discriminate. We are all vulnerable and need to 
+      take measures to protect ourselves by pressuring legislation to establish more explicit information protection 
+      policies for consumers. The need for protection is ever-increasing as more and more of our data is collected 
+      through our digital experiences. 
+       </p>
   </div>
 
 </div>

@@ -6,29 +6,34 @@ body {
   
   h1 {
     font-size: 3em;
-    margin: 0.25em 0;
+    margin: 0em 0;
+    font-family:'Inter', sans-serif;
+    color:#0f0f0f;
   }
   
   h3 {
-    font-size: 2em;
+    font-size: 1.3em;
     margin: 0.25em 0;
+    text-align:left;
+    color: darkred;
+    font-family:'Gotu', sans-serif;
   }
   
   p {
     font-size: 1em;
+    text-align:left;
+    color:#0f0f0f;
+
   }
   
   #hover-content {
     position:absolute;
-    height: 50px;
-    width: fit-content;
+    height: auto;
+    width: auto;
     pointer-events: none;
 
   }
   
-  path.state {
-    stroke: white;
-  }
 
   #title {
     text-align: center;
@@ -40,4 +45,49 @@ body {
     text-align: center;
     padding-top: 10%;
     /* padding-bottom:5%   */
+  }
+
+
+  ul {
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fafafa;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: #0f0f0f;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #0f0f0f;
+  }
+
+  a {
+    color: red;
+    transition: all 0.2s linear;
+    }
+    a:hover, a:focus {
+    color: red;
+    }
+
+path:hover{
+  fill:black;
+}
+
+*{
+  scroll-behavior: smooth !important;
   }

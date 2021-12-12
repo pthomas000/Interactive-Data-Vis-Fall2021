@@ -2,7 +2,7 @@
 
 // *CONSTANTS + GLOBALS
 
- const width = window.innerWidth * 0.9,
+ const width = window.innerWidth * 0.45,
  height = window.innerHeight * 0.7,
  margin = { top: 20, bottom: 30, left: 0, right: 0 };
 
@@ -14,11 +14,11 @@ let state = {
  geojson: null,
  statebreaches: null,
  hover: {
-   state: null,
-   breachtot: null,
-   severe: null,
-   moderate: null,
-   basic: null
+  //  state: null,
+  //  breachtot: null,
+  //  severe: null,
+  //  moderate: null,
+  //  basic: null
  },
 };
 
@@ -45,10 +45,14 @@ function init() {
 
     colorScale = d3.scaleSequential()
     .interpolator(d3.interpolateReds)
-    .domain(d3.extent(state.statebreaches, d => d['breachtot']))
+    .domain(d3.extent(state.statebreaches, d => d['pct_total']))
 
     const populationLookup = new Map(state.statebreaches.map(d => [
-      d['state'], d['breachtot']
+      d['state'], d['pct_total'], d['avgbreachtot']
+    ]))
+
+    const avgBreachLookup = new Map(state.statebreaches.map(d => [
+      d['state'], d['avgbreachtot']
     ]))
 
     // const breachtotLookup = new Map(state.statebreaches.map())
@@ -74,13 +78,18 @@ function init() {
   //  .attr("d", path)
    .attr("class", "state")
    .attr("d", d => pathGen(d))
+   .style("stroke", "white")
    .attr("fill", (d) => {
      return colorScale(+populationLookup.get(d.properties.NAME)) //**** */
    })
 
    .on("mouseover", (mouseEvent, d) => {
      // when the mouse rolls over this feature, do this
-     state.hover["state"] = d.properties.NAME;
+     state.hover["State"] = d.properties.NAME;
+     console.log(populationLookup.get(d.properties.NAME))
+     state.hover["% of Total Breaches"] = populationLookup.get(d.properties.NAME).substring(0,4);
+     state.hover["Avg # of Breaches/Individual"] = avgBreachLookup.get(d.properties.NAME).substring(0,4);
+     console.log(state)
      draw(); // re-call the draw function when we set a new hoveredState
    });
 
@@ -90,20 +99,20 @@ function init() {
 // .data(state.statebreaches)
 // join("text")
 // .attr("class", "state")
-   svg.on("mousemove", (e) => {
+  //  svg.on("mousemove", (e) => {
 
-   // we can d3.pointer to tell us the exact x and y positions of our cursor
-   const [mx, my] = d3.pointer(e);
-   // projection can be inverted to return [lat, long] from [x, y] in pixels
-   state.x = e.clientX;
-   state.y = e.clientY;
-  //  const proj = projection.invert([mx, my]);
-    // console.log(proj)
-  // const proj = state.statebreaches.breachtot;
-  // const proj = state.statebreaches.invert([breachtot, avgbreachtot]);
-   state.hover["Total breaches"] = populationLookup.value;
-  //  state.hover["state"] = d.properties.NAME;
-   draw();
+  //  // we can d3.pointer to tell us the exact x and y positions of our cursor
+  //  const [mx, my] = d3.pointer(e);
+  //  // projection can be inverted to return [lat, long] from [x, y] in pixels
+  //  state.x = e.clientX;
+  //  state.y = e.clientY;
+  // //  const proj = projection.invert([mx, my]);
+  //   // console.log(proj)
+  // // const proj = state.statebreaches.breachtot;
+  // // const proj = state.statebreaches.invert([breachtot, avgbreachtot]);
+  //  state.hover["Total breaches"] = populationLookup.value;
+  // //  state.hover["state"] = d.properties.NAME;
+  //  draw();
 
 // const stateBreaches = svg
 // .selectAll("#container")
@@ -124,7 +133,7 @@ function init() {
 //    state.hover["Total breaches"] = d.breachtot;
 //    state.hover["state"] = d.state;
 //    draw();
- });
+//  });
     draw(); 
 }
 
@@ -152,12 +161,17 @@ function draw() {
 //   );
 //   }
  hoverData = Object.entries(state.hover);
-
+console.log(hoverData)
   d3.select("#hover-content")
-    .selectAll("div.row")
+    .selectAll("div")
     .data(hoverData)
     .join("div")
-    .attr("class", "row")
+    // .attr("x", clientX)
+    // .attr("y",clientY)
+    // .style("width", "auto")
+    // .style("height", "auto")
+    .style("background-color", "fafafa")
+    .attr("class", "div")
     .html(
       d =>
         // each d is [key, value] pair
@@ -168,12 +182,12 @@ function draw() {
 
 }
 
-/***************** BAR CHART ********************/
+/***************** BAR CHART: Education ********************/
 
 
 
 /* CONSTANTS AND GLOBALS */
-const width2 = window.innerWidth *.8 ;
+const width2 = window.innerWidth *.4 ;
 const height2 = 500;
 const margin2 = 65;
 
@@ -186,7 +200,7 @@ d3.csv('../data/dataPrivacy_educ.csv', d3.autoType)
  /* SCALES */
 // xscale - linear, count
 const xScale = d3.scaleLinear()
-              .domain([0, d3.max(data, d => d.breachtot)])
+              .domain([0, d3.max(data, d => d.avgbreachtot)])
               .range([margin2+10,width2-margin2])
   
 
@@ -199,7 +213,7 @@ const yScale = d3.scaleBand()
 //color scale
 const colorScale = d3.scaleOrdinal(d3.schemeAccent)
               .domain(data.map(d => d.activity))
-              .range(d3.schemeBlues[9])
+              .range(d3.schemeReds[9])
 
   /* HTML ELEMENTS */
  // svg
@@ -212,7 +226,7 @@ svg = d3.select("#container2")
         svg.selectAll("rect")
           .data(data)
           .join("rect")
-          .attr("width", d=> xScale(d.breachtot)-margin2)
+          .attr("width", d=> xScale(d.avgbreachtot)-margin2)
           .attr("height", yScale.bandwidth())
           .attr("x", margin2+10)
           .attr("y", d=> yScale(d.educ))
@@ -222,24 +236,92 @@ svg = d3.select("#container2")
           .attr("class","x-axis")
           .style("transform", `translate(0px,${height2-margin2}px)`)
           .call(d3.axisBottom(xScale))
+          .style("color", "#676767")
+
           
         svg.append("g")
           .attr("class","y-axis")
           .style("transform", `translate(${margin2+10}px,0px)`)
           .call(d3.axisLeft(yScale))
+          .style("color", "#676767")
+
  })
 
+
+ // ***************** BAR CHART: Income ********************/
+
+
+
+/* CONSTANTS AND GLOBALS */
+const width4 = window.innerWidth *.4 ;
+const height4 = 500;
+const margin4 = 65;
+
+/* LOAD DATA */
+d3.csv('../data/dataPrivacy_inc.csv', d3.autoType)
+.then(data => {
+  // console.log("data", data)
+
+ /* SCALES */
+// xscale - linear, count
+const xScale4 = d3.scaleLinear()
+              .domain([0, d3.max(data, d => d.avgbreachtot)])
+              .range([margin4+10,width4-margin4])
+  
+
+// yscale - categorical, activity
+const yScale4 = d3.scaleBand()
+              .domain(data.map(d => d.inc))
+              .range([height4-margin4,margin4])
+              .paddingInner(.2)
+
+//color scale
+const colorScale4 = d3.scaleOrdinal(d3.schemeAccent)
+              .domain(data.map(d => d.inc))
+              .range(d3.schemeReds[3])
+
+  /* HTML ELEMENTS */
+ // svg
+svg4 = d3.select("#container4")
+            .append("svg")
+            .attr("width",width4)
+            .attr("height",height4)
+
+ // bars
+        svg4.selectAll("rect")
+          .data(data)
+          .join("rect")
+          .attr("width", d=> xScale4(d.avgbreachtot)-margin2)
+          .attr("height", yScale4.bandwidth())
+          .attr("x", margin4+10)
+          .attr("y", d=> yScale4(d.inc))
+          .attr("fill", d=> colorScale4(d.inc)) //adding color using 'color scale'
+
+        svg4.append("g")
+          .attr("class","x-axis")
+          .style("transform", `translate(0px,${height4-margin4}px)`)
+          .call(d3.axisBottom(xScale4))
+          .style("color", "676767")
+          
+        svg4.append("g")
+          .attr("class","y-axis")
+          .style("transform", `translate(${margin4+10}px,0px)`)
+          .call(d3.axisLeft(yScale4))
+          .style("color", "676767")
+
+ })
 
  /********** SCATTERPLOT **************/
 
  /* CONSTANTS AND GLOBALS */
- const width3 = window.innerWidth * 0.7,
+ const width3 = window.innerWidth * 0.35,
    height3 = window.innerHeight * 0.7,
    margin3 = { top: 50, bottom: 60, left: 60, right: 40 },
    radius3 = 4;
  
  /* LOAD DATA */
- d3.csv("../data/dataPrivacy_age.csv", d3.autoType).then(data => {
+ d3.csv('../data/age_groups.csv', d3.autoType)
+.then(data => {
    console.log(data)
  
    /* SCALES */
@@ -250,19 +332,18 @@ svg = d3.select("#container2")
  
      // yscale - linear,count
    const yScale = d3.scaleLinear()
-     .domain([0, d3.max(data, d => d.breach)])
+     .domain([0, d3.max(data, d => d.breachtot)])
      .range([height3 - margin3.bottom, margin.top])
  
      //radiusscale - proportionate to EPI (Environmental Performance Index) ranking 
      const radiusScale = d3.scaleSqrt()
-     .domain([0, d3.max(data, d => d.breach)])
-     .range([8,2])
+     .domain([0, d3.max(data, d => d.freq*10)])
+     .range([0,50])
  
      //colorscale
    const colorScale = d3.scaleLinear()
-     .domain([0, d3.max(data.map(d => d.breach))])
-     .range(["green", "red"])
-     d3.interpolateRgb("red", "pink")(0.5)
+     .domain([0, d3.max(data.map(d => d.breachtot))])
+     .range(["red", "red"])
  
    /* HTML ELEMENTS */
    // svg
@@ -270,18 +351,19 @@ svg = d3.select("#container2")
      .append("svg")
      .attr("width", width3)
      .attr("height", height3)
+     .style("float", "right")
  
    // Axes
    const xAxis = d3.axisBottom(xScale)
    svg.append("g")
      .attr("transform", `translate(0,${height3 - margin3.bottom})`)
-     .attr("color", "darkgrey")
+     .style("color", "#676767")
      .call(xAxis);
  
    const yAxis = d3.axisLeft(yScale)
    svg.append("g")
      .attr("transform", `translate(${margin3.left},0)`)
-     .attr("color", "darkgrey")
+     .style("color", "#676767")
      .call(yAxis);
  
  // Axes Labels
@@ -314,10 +396,14 @@ svg = d3.select("#container2")
  
    gdots.append("circle")
      .attr("cx", d => xScale(d.age))
-     .attr("cy", d => yScale(d.breach))
-     .attr("r", 2)
-     .attr("opacity", "0.8")
-     .attr("fill", d => colorScale(d.breach))
+     .attr("cy", d => yScale(d.breachtot))
+     .attr("r", d => radiusScale(d.freq))
+     .attr("stroke-width", "1.5")
+     .attr("stroke", d => colorScale(d.breachtot))
+     .attr("fill","none")
+     .attr("opacity", "1")
+
+
      // .append('title')
      // .text((d) => `Sales were ${d.country} in ${d.epi}`);
  
@@ -340,6 +426,169 @@ svg = d3.select("#container2")
  //     .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
  
  })
+
+
+
+//  /********** SCATTERPLOT **************/
+
+//  /* CONSTANTS AND GLOBALS */
+//  const width3 = window.innerWidth * 0.7,
+//    height3 = window.innerHeight * 0.7,
+//    margin3 = { top: 50, bottom: 60, left: 60, right: 40 },
+//    radius3 = 4;
+ 
+//  /* LOAD DATA */
+//  Promise.all([
+//  d3.csv('../data/age_groups.csv', d3.autoType)
+// ]).then(([agebreaches]) => {
+//   state.agebreaches = agebreaches;
+//    console.log(agebreaches);
+//    init4();
+// });
+ 
+//    /* SCALES */
+//    // xscale  - linear,count
+//    function init4() {
+//    const xScale = d3.scaleLinear()
+//      .domain([0, d3.max(state.agebreaches.map(d => d.age))])
+//      .range([margin3.left, width3 - margin3.right])
+ 
+//      // yscale - linear,count
+//    const yScale = d3.scaleLinear()
+//      .domain([0, d3.max(state.agebreaches, d => d.breachtot)])
+//      .range([height3 - margin3.bottom, margin.top])
+ 
+//      //radiusscale - proportionate to EPI (Environmental Performance Index) ranking 
+//      const radiusScale = d3.scaleSqrt()
+//      .domain([0, d3.max(state.agebreaches, d => d.freq*10)])
+//      .range([0,50])
+ 
+//      //colorscale
+//    const colorScale = d3.scaleLinear()
+//      .domain([0, d3.max(state.agebreaches.map(d => d.breachtot))])
+//      .range(["red", "red"])
+ 
+//      const breachLookup = new Map(state.agebreaches.map(d => [
+//       d['age'], d['breachtot'], d['freq']
+//     ]))
+//     const avgBreachLookup2 = new Map(state.agebreaches.map(d => [
+//       d['age'], d['breachtot']
+//     ]))
+//     console.log(avgBreachLookup2)
+
+
+//    /* HTML ELEMENTS */
+//    // svg
+//    const svg = d3.select("#container3")
+//      .append("svg")
+//      .attr("width", width3)
+//      .attr("height", height3)
+ 
+//    // Axes
+//    const xAxis = d3.axisBottom(xScale)
+//    svg.append("g")
+//      .attr("transform", `translate(0,${height3 - margin3.bottom})`)
+//      .style("color", "#676767")
+//      .call(xAxis);
+ 
+//    const yAxis = d3.axisLeft(yScale)
+//    svg.append("g")
+//      .attr("transform", `translate(${margin3.left},0)`)
+//      .style("color", "#676767")
+//      .call(yAxis);
+ 
+//  // Axes Labels
+    
+//    // X-Axis
+//    svg.append("text")
+//      .attr("class", "x label")
+//      .attr("text-anchor", "end")
+//      .attr("x", margin3.right*6)
+//      .attr("y", height3 - 6)
+//      .attr("fill", "darkgrey")
+//      .text("Age");
+ 
+//    // Y-Axis
+//    svg.append("text")
+//      .attr("class", "y label")
+//      .attr("text-anchor", "end")
+//      .attr("x", -75)
+//      .attr("dy", ".75em")
+//      .attr("fill", "darkgrey")
+//      .attr("transform", "rotate(-90)")
+//      .text("Number of Breaches");
+     
+ 
+//    // circles and country labels
+ 
+//    const gdots = svg.selectAll("g.dot")
+//      .data(state.agebreaches)
+//      .enter().append('g');
+ 
+//    gdots.append("circle")
+//      .attr("cx", d => xScale(d.age))
+//      .attr("cy", d => yScale(d.breachtot))
+//      .attr("r", d => radiusScale(d.freq))
+//      .attr("stroke-width", "1.5")
+//      .attr("stroke", d => colorScale(d.breachtot))
+//      .attr("fill","none")
+//      .attr("opacity", "1")
+
+//      .on("mouseover", (mouseEvent, d) => {
+//       // when the mouse rolls over this feature, do this
+//       state.hover2["Age"] = d.properties.NAME;
+//       console.log(breachLookup.get(d.properties.NAME))
+//       state.hover2["% of Total Breaches"] = breachLookup.get(d.properties.NAME);
+//       state.hover2["Avg # of Breaches/Individual"] = avgBreachLookup2.get(d.properties.NAME);
+//       console.log(state)
+//       draw(); // re-call the draw function when we set a new hoveredState
+//     });
+    
+//      // .append('title')
+//      // .text((d) => `Sales were ${d.country} in ${d.epi}`);
+ 
+//     //  gdots.append("text")
+//     //  .text(d => d.country)
+//     //  .attr("x", d => xScale(d.eco))
+//     //  .attr("y", d => yScale(d.hlt))
+//     //  // .attr("dy", 10)
+//     //  .attr("dx", 10)
+//     //  .style("z-index", "10")
+//     //  .attr("font-size", 10)
+//     //  .attr("fill", "white");
+     
+ 
+//  // gdots.enter().append("div")
+//  //   .style("width", function(d) { return x(d) + "px"; })
+//  //   .text(d =>  d.country)
+//  //   .on("mouseover", function(d){tooltip.text(d); return tooltip.style("visibility", "visible");})
+//  //     .on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+//  //     .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+//  draw4();
+//  };
+
+// function draw4() {
+//   hoverData2 = Object.entries(state.hover2);
+// console.log(hoverData2)
+//   d3.select("#hover-content2")
+//     .selectAll("div")
+//     .data(hoverData2)
+//     .join("div")
+//     // .attr("x", clientX)
+//     // .attr("y",clientY)
+//     // .style("width", "auto")
+//     // .style("height", "auto")
+//     .style("background-color", "fafafa")
+//     .attr("class", "div")
+//     .html(
+//       d =>
+//         // each d is [key, value] pair
+//         d[1] // check if value exist
+//           ? `${d[0]}: ${d[1]}` // if they do, fill them in
+//           : null // otherwise, show nothing
+//     );
+
+// }
 
 
 
@@ -371,12 +620,12 @@ svg = d3.select("#container2")
 // console.log("data", raw_data);
 // // save our data to application state
 // state3.data = raw_data;
-// init();
+// init2();
 // });
 
 // /* INITIALIZING FUNCTION */
 // // this will be run *one time* when the data finishes loading in
-// function init() {
+// function init2() {
 // // + SCALES
 // xScale3 = d3.scaleLinear()
 //   .domain(d3.extent(state3.data, d => d.age))
@@ -414,7 +663,7 @@ svg = d3.select("#container2")
 //   // save this new selection to application state
 //   state3.selectedParty = event.target.value
 //   console.log("NEW STATE:", state3);
-//   draw(); // re-draw the graph based on this new selection
+//   draw2(); // re-draw the graph based on this new selection
 // });
 
 // // + CREATE SVG ELEMENT
@@ -451,12 +700,12 @@ svg = d3.select("#container2")
 //   .attr("text-anchor", "middle")
 //   .text("Environmental Score 2020")
 
-// draw(); // calls the draw function
+// draw2(); // calls the draw function
 // }
 
 // /* DRAW FUNCTION */
 // // we call this every time there is an update to the data/state
-// function draw() {
+// function draw2() {
 
 // // + FILTER DATA BASED ON STATE
 // // const filteredData = state3.data
@@ -498,6 +747,8 @@ svg = d3.select("#container2")
 // //         .remove()
 // //       )
 // //   );
+
+
 
 //   const dot = svg
 //   .selectAll("circle")
