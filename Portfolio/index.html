@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      font-family: Arial;
+    }
+    
+    .header {
+      text-align: center;
+      padding-top: 5%;
+    }
+    
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0px;
+    }
+    
+    /* Create four equal columns that sits next to each other */
+    .column {
+      flex: 50%;
+      max-width: 50%;
+      /* padding: 0 10%; */
+      text-align:center;
+      height:auto;
+    }
+    
+    .column2 {
+      flex: 100%;
+      max-width: 100%;
+      padding: 0 0%;
+      text-align:center;
+    }
+    
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+    }
+    
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+    
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+        padding: 10% 10%;
+      }
+    }
+    </style>
+<head>
+    <meta charset="utf-8">
+    <title>Priyanka's Interactive Data Visualization Portfolio</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Inter:wght@200;400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+<!-- Navbar -->
+<ul>
+  <li><a href = "index.html"> Data Privacy</a></li>
+  <li><a href = "Revised1.html">Revised Tutorial 1</a></li>
+  <!-- <li><a href = "Revised2.html">Revised Tutorial 2</a></li> -->
+</ul>
+<!-- Final Project Box -->
+    <!-- Abstract -->
+    <div style = "background-color:#fafafa">
+    <div class = "row" style = "padding-left: 10%; padding-right:20%; padding-top:10%;">
+    <img src = "../images/final_view.png" style = "width:75%; height:75%;">
+    <div class = "column" style = "column-span: 1;">
+      <h2> Abstract</h2>
+    <p>
+        Abstract: "Data Privacy" is a project that answers the question— "How real 
+        are the threats to my data privacy?" by performing data analysis 
+        and manipulation on data pulled from Pew Research 2017 Cybersecurity 
+        Survey. The visualization communicate the average number of data breaches 
+        per individual by variables that presented statistically significant variance 
+        within the data (state, education, income, and age).
+    </p>
+
+   <p> <a href = "../Final_Project"> See in Action</a></p>
+    </div>
+
+
+    </div>
+    <!-- Data -->
+    <div class = "row" style = "padding-left: 10%; padding-right:20%; padding-top:10%;"> 
+     <div class = "column" style = "column-span: 1;">
+    <h2> Data</h2>
+        <p>Pews Research 2017 Cybersecurity Survey data collected a variety of information 
+        relating to individuals' feelings, knowledge, and experience with data privacy 
+        and breaches. The data was pulled into R to determine statistically significant 
+        demographic variables when accounting for variance in the number of breaches across 
+        groups. State, education, income and age were statistically significant and so are
+        included in this project as visualizations. Variables that were not statistically significant
+        were race and political affiliation.  
+        </p>
+    </div>
+    </div>
+    <!-- Project Plan Artifacts-->
+        <!-- sketches -->
+    <div class = "row" style = "padding-left: 10%; padding-right:20%; padding-top:10%; padding-bottom:5%;">   
+     <h2>Project Plan</h2>
+        <p> <em>>Overview:</em> Narrative piece on what data privacy is, and who is affected by 
+            threats to data privacy. Which groups are most vulnerable to data privacy threats?
+            <br>
+            <br><em>>What the project will encompass:</em> Explanation of what is data privacy and why 
+            it’s important, and then display of which groups are most vulnerable by state (map), income 
+            and education (bar graph), and age (scatterplot). Conclusion summarizes results and circles 
+            back to the importance of data privacy.
+            
+            <br>
+            <br></p><em>>The audience:</em> Anyone who shares their information online. </p>
+            
+            <br><em>>The way the project meets needs of the intended audience:</em> They are introduced to data privacy and how widespread this problem is, as well as which groups are more vulnerable than others. 
+            </p>
+
+            <a style = "padding-top:5%; padding-bottom:5%;" href = "../Project_Plan/SiteArch.MD">Site Architecture Markdown File</a>
+
+        <div class = "row" style = "padding-bottom:5%;">
+            <div class = "column">
+                <p> Sketch 1</p>
+                <img src = "../images/sketch1.png" style = "width:50%;">
+            </div>
+            <div class = "column">
+                <p> Sketch 2</p>
+                <img src = "../images/sketch2.png" style = "width: 50%;">
+            </div>
+        </div>
+
+        <h5>Data Plan</h5>
+            <p>
+                Final data cleaned in csv format.
+
+        —————
+        CSV’s (data analysis + cleaning plan)
+        <br>
+        Map //
+        <br>
+        CSV 1:
+        <br>
+        State, total breaches, severe, moderate, basic, average data breach per individual, average severe, average moderate, average basic
+        <br>
+
+        <br>
+        Bar Chart (categorical) //
+        <br>
+        CSV 2:
+        <br>
+        Income, total data breaches, severe, moderate, basic, average data breach per individual, average severe, average moderate, average basic
+        <br>
+
+        <br>
+        CSV 3:
+        <br>
+        Level of education,  total breaches, severe, moderate, basic, average data breach per individual, average severe, average moderate, average basic
+        <br>
+
+        <br>
+        Scatterplot (continuous) //
+        <br>
+        CSV 4: 
+        <br>
+        Age,  total breaches, severe, moderate, basic, average data breach per individual, average severe, average moderate, average basic
+        <br>
+
+        <br>
+        *** To do— create CSV’s in R [done]
+        <br>
+
+        <br>
+        —————
+        <br>
+
+        <br>
+        Viz Elements (high-level overview of site architecture)
+        <br>
+
+        <br>
+        Map // 
+        <br>
+        <br>
+        Draw Map
+        <br>
+
+        Data bind: total breaches, severe, moderate, basic
+        <br>
+        Tooltip: Toggle 1a—Percent total  breaches, severe, moderate, basic  by state
+        <br> Toggle 1b— Average per ind avgbreachtot, avgsevere, avgmoderate, avgbasic 
+        <br>Toggle 2a— Total, Severe, Moderate, Basic
+        <br>*** Convert total breach, severe, moderate, and basic to percent across states 
+        <br>
+        <br>
+        Scales: colorScale— # breaches
+        <br>
+        Key for colors by percent  (# Breaches ->least (white -> dark red)
+        <br>
+        Toggle function between:
+        <br>[total breaches- total breaches, total severe, total moderate, total basic] and 
+        <br>[average per individual within state- average total, average severe, average moderate, average basic]-> color code between total and average
+        <br>
+
+        <br>
+        Bar Chart //
+        <br>
+        <br>Toggle between average and total for each group
+        <br>Toggle between Income and Education
+
+        <br>Bar stacks into severe, moderate, and basic breaches
+        <br>Bar height Total breaches
+
+        <br>Line graph overlay  with total breaches
+
+        <br>
+        <br>Scatterplot // 
+        <br>Toggle between # of total, severe, moderate, basic data breaches
+
+        <br>Circles x age
+        <br>Circles y # data breaches (toggles between severities)
+
+        <br>Color-coded by age groups
+        <br>
+
+        </p>
+        <p><a href = "../Final_Project">See in action</a></p>
+
+    </div>
+  </div>
+    <!-- Reflection -->
+    <!-- See in action (stable path) -->
+
+<div class = "row" style = "padding-left: 10%; padding-right:20%; padding-top:10%; padding-bottom:10%;"> 
+  <div class = "column" style = "column-span: 1;">
+    <h2> Reflection</h2>
+<p>
+  Over the course of this semester, I’ve been developing this project in tandem with learning d3, a Javascript library for 
+  manipulating documents based on data. Throughout the process I made design choices based on my data and feedback from peers, 
+  which allowed me to make a lot of progress in a short amount of time; of course, there are also parts of my project that 
+  could have been fleshed out a bit more given extra time— I’ve outlined some possibilities for future iterations, as well.
+  <br>
+  <br>
+  One of the most obvious design decisions made in this project was that of color. My sketches use blue as the primary color, 
+  but as I was looking at the data, and also after hearing some feedback from peers, I noticed that higher quantity visually 
+  communicated in blue made one think that an increase in quantity correlated with a positive result. However, I wanted more 
+  breaches to communicate increased negative experiences of individuals, so I changed the primary color to red. This allowed 
+  for an increase in quantity to be understood as an increase in negative impact, as red is commonly attached to negative items, 
+  like error alerts or warnings. Another color choice I made was on the breaches by age scatter plot. I previously used a green 
+  to red color scale, but the green made it look like those individuals were safe, but in reality, anyone above zero was vulnerable 
+  at some point to data privacy threats. To make this more clear, I switched to a pink to red color scale so it would maintain the 
+  degree of threat while maintaining that all points above zero are vulnerable. 
+  <br>
+  <br>
+  Another major design decision I made was how the data would be represented, visually. To do this, I labelled each relevant 
+  variable either continuous or categorical, and then I chose the appropriate graph. The number of breaches is always continuous 
+  in my data set. Age is continuous as well, so breaches by age was  represented by a scatter plot. Income could have been continuous, 
+  but I wanted to compare between low, middle, and upper income class more explicitly, so I compared the average number of breaches 
+  per group with income as a categorical variable; thus, a bar chart was appropriate. Race is also categorical, so I represented 
+  the data in a bar chart.
+  <br>
+  <br>
+  During the group critiques, I got helpful feedback about the wireframes of my site. Kenji pointed out that my sketch would be more 
+  welcoming if I included one of the visualizations at the start of the page, rather than starting with chunks of text. As a result, 
+  my second sketch breaks up the visualization section and aims to intertwine the text and visualizations in a less delineated manner. 
+  I appreciated this piece of advice because it makes the overall experience of my page a lot more fun and interactive, and also makes 
+  use of the visualizations in a more direct way as to how it relates to the data privacy narrative I am trying to convey. 
+  <br>
+  <br>
+  Another helpful criticism was during the final presentation where a lot of students were confused by my scatterplot. It was unclear 
+  to my peers what the data was conveying because of the vague axis titles and the improperly named graph. The title, “Which Age Groups 
+  are Vulnerable?” was confusing because the circles were representing individuals, not groups. As a result, I changed the title to 
+  “Average Number of Breaches per Individual by Age” which communicates the intention of the graph much more clearly. Another point 
+  that was brought up was that my scatter plot was misleading because there might be individuals who overlapped, with the same age 
+  and same number of breaches (which there were), and so the quantity of the individuals at a certain data point was not communicated 
+  at all in the graph. To remedy this, I made the circle radius correspond to the number of individuals at that same data point, of the 
+  same age and number of breaches. 
+  <br>
+  <br>
+  My final version of the project includes probably about 65% of what was included in my sketch in terms of functionality. I was having 
+  trouble getting certain interactive elements to work, like the functionality to switch between total, severe, moderate, and basic breaches. 
+  If I were to share this project with the public, I would need this piece to account for the heterogeneity I observed for the variables’ 
+  relation to the number of data breaches. I did not notice statistical significance for total number of data breaches between different groups
+   for total number of breaches, but I did notice statistically significant variance between groups in relation to number of severe breaches. 
+   Overall, my point was that no one is exempt from being vulnerable to data privacy threats, so perhaps that bit is not necessary, but I 
+   think for good practice and to create a more informative and interesting data visualization experience for my audience, I would like to 
+   include that bit for a future iteration. 
+   <br>
+   <br>
+  Another bit I would change is to add a tooltip to my scatterplot. With the addition of the radius scale to account for the quantity of 
+  individuals at a certain coordinate, it is unclear what that quantity is since there is no legend for the sizes of the circles (nor do 
+  I think one would be helpful); it would be beneficial to have a tooltip to more clearly display the quantity of individuals at that particular 
+  coordinate and also the details of age, and the total number of breaches. 
+  <br>
+  <br>
+  My second data visualization is a revision of my project from Tutorial 2_1_quantities_and_distributions. For this revision, I removed the 
+  radius scale because it was not contributing anything new to the visualization; it was only corresponding to the Ecosystem Vitality Ranking 
+  which was already communicated by the x coordinate. I also removed the static country names on the graph— it was impossible to read and cluttered 
+  the data making the circles difficult to see, as well. Instead, I added a tooltip that holds the country’s name, Ecosystem Vitality Ranking, 
+  and Environmental Health Ranking. This is much easier to read and does not clutter the graph. 
+  <br>
+  <br>
+  <a href = "Revised1.html"> See my second data visualization here</a>
+  
+  
+  </p>
+</div>
+</div>
+
+<!-- Redone Tutorial -->
+
+<!-- Redone Tutorial -->
+</body>
+</html>

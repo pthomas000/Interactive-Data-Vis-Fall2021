@@ -301,13 +301,13 @@ svg4 = d3.select("#container4")
           .attr("class","x-axis")
           .style("transform", `translate(0px,${height4-margin4}px)`)
           .call(d3.axisBottom(xScale4))
-          .style("color", "676767")
+          .style("color", "#676767")
           
         svg4.append("g")
           .attr("class","y-axis")
           .style("transform", `translate(${margin4+10}px,0px)`)
           .call(d3.axisLeft(yScale4))
-          .style("color", "676767")
+          .style("color", "#676767")
 
  })
 
